@@ -1,0 +1,14 @@
+# Binaries
+app
+main
+url-shortener
+
+# OS Specific
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Docker
+docker-compose.override.yml
