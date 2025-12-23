@@ -2,7 +2,7 @@
 
 A high-performance, containerized URL shortener service built with Go (Golang) and Redis. Designed to demonstrate microservice architecture, REST API design, and container orchestration.
 
-## 🚀 Features
+##  Features
 
 *   **URL Shortening**: Generates unique 6-character short codes for long URLs.
 *   **Fast Redirection**: High-performance HTTP redirects using Redis caching.
@@ -10,14 +10,14 @@ A high-performance, containerized URL shortener service built with Go (Golang) a
 *   **Containerized**: Fully Dockerized for "write once, run anywhere" deployment.
 *   **REST API**: Clean JSON-based API endpoints.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 *   **Language**: Go (Golang) 1.23+
 *   **Database**: Redis (Alpine)
 *   **Infrastructure**: Docker & Docker Compose
 *   **Testing**: Go testing package & Miniredis
 
-## 📦 Installation & Run
+## Installation & Run
 
 You need **Docker** installed on your machine.
 
@@ -39,7 +39,7 @@ You need **Docker** installed on your machine.
     curl -X POST -d '{"url": "https://google.com"}' http://localhost:8080/shorten
     ```
 
-## 🔌 API Endpoints
+##  API Endpoints
 
 | Method | Endpoint | Description | Body / Payload |
 | :--- | :--- | :--- | :--- |
@@ -61,7 +61,7 @@ curl http://localhost:8080/analytics/AbC123
 # Output: {"short_code": "AbC123", "clicks": 5}
 ```
 
-## 🧪 Testing
+##  Testing
 
 To run the unit and integration tests (mocking Redis):
 
