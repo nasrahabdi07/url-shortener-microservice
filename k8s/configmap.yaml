@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: url-shortener-config
+data:
+  REDIS_ADDR: "redis-service:6379"
+  BASE_URL: "http://localhost:30000" # Adjusted for NodePort access, usually you'd use Ingress domain

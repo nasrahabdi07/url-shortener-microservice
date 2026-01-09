@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: url-shortener-service
+spec:
+  type: NodePort # Using NodePort for local minikube/kind access as requested
+  selector:
+    app: url-shortener
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30000

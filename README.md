@@ -68,3 +68,55 @@ To run the unit and integration tests (mocking Redis):
 ```bash
 go test -v ./...
 ```
+
+## ☸️ Kubernetes Deployment
+
+### Prerequisites
+- **Docker Desktop** (Make sure Kubernetes is enabled in Settings -> Kubernetes -> Enable Kubernetes)
+- `kubectl` (Included with Docker Desktop)
+
+### Steps
+
+1.  **Build the Docker Image**
+    Since you are using Docker Desktop, the image built locally is immediately available to the local Kubernetes cluster.
+    ```bash
+    docker build -t url-shortener:latest .
+    ```
+
+2.  **Deploy Redis**
+    ```bash
+    kubectl apply -f k8s/redis.yaml
+    ```
+
+3.  **Deploy Configuration and Application**
+    ```bash
+    kubectl apply -f k8s/configmap.yaml
+    kubectl apply -f k8s/deployment.yaml
+    kubectl apply -f k8s/service.yaml
+    ```
+
+4.  **Verify Deployment**
+    Check if all pods are running:
+    ```bash
+    kubectl get pods
+    ```
+
+5.  **Access the Application**
+    Docker Desktop exposes NodePorts on `localhost`.
+    
+    **Test Health Endpoint:**
+    ```bash
+    curl http://localhost:30000/healthz
+    # Should output: OK
+    ```
+
+    **Shorten a URL:**
+    ```bash
+    curl -X POST -d '{"url": "https://google.com"}' http://localhost:30000/shorten
+    ```
+
+### Troubleshooting
+- **"no such host" or connection errors?**
+  Ensure you are applying the Kubernetes manifests (`kubectl apply ...`) and *not* just running `docker-compose up` or the "Play" button in Docker Desktop's container list. The container list runs the default Docker Compose stack, which is different from the Kubernetes deployment.
+
+
