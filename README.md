@@ -69,7 +69,7 @@ To run the unit and integration tests (mocking Redis):
 go test -v ./...
 ```
 
-## ☸️ Kubernetes Deployment
+##  Kubernetes Deployment
 
 ### Prerequisites
 - **Docker Desktop** (Make sure Kubernetes is enabled in Settings -> Kubernetes -> Enable Kubernetes)
